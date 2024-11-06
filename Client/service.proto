@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option csharp_namespace = "Client";
+
+package greet;
+
+service Translator {
+  // RPC для перевода
+  rpc Translate (TranslateRequest) returns (TranslateReply);
+
+  // RPC для запроса информации
+  rpc Information (EmptyRequest) returns (InfoReply);
+}
+
+// Request перевода
+message TranslateRequest {
+  repeated string text = 1;
+  string target = 2;
+  string source = 3;
+}
+
+// Response с переводом
+message TranslateReply {
+  bool isErrored = 1;
+  string errorMessage = 2;
+  repeated string translations = 3;
+}
+
+
+// Пустое сообщение запроса
+message EmptyRequest { }
+
+// Response с информацией использованный систем
+message InfoReply {
+  string translator = 1;
+  string caching = 2;
+  int64 cacheSize = 3;
+}

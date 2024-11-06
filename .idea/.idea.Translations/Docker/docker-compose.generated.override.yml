@@ -1,0 +1,21 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  server:
+    build:
+      context: "F:\\archive\\another_code\\js\\work\\Translations\\Translations"
+      dockerfile: "Server/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Release/net8.0/Server.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "translations_server:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\fydne1\\.nuget\\packages:/home/app/.nuget/packages"
+    - "F:\\archive\\another_code\\js\\work\\Translations\\Translations\\Server:/app:rw"
+    - "F:\\archive\\another_code\\js\\work\\Translations\\Translations:/src:rw"
+    working_dir: "/app"

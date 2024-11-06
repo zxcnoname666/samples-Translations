@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3E960434-38B6-4B47-BECD-FCE2370EAFAE}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{5936FB53-DBE6-478F-9CEA-1A160FFDDB56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{559BDED0-8EEC-4D38-BFC8-FCB5FF58FF90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{07F184F3-D7FA-4A17-BA99-653DB7515CE7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5936FB53-DBE6-478F-9CEA-1A160FFDDB56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5936FB53-DBE6-478F-9CEA-1A160FFDDB56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5936FB53-DBE6-478F-9CEA-1A160FFDDB56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5936FB53-DBE6-478F-9CEA-1A160FFDDB56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{559BDED0-8EEC-4D38-BFC8-FCB5FF58FF90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{559BDED0-8EEC-4D38-BFC8-FCB5FF58FF90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{559BDED0-8EEC-4D38-BFC8-FCB5FF58FF90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{559BDED0-8EEC-4D38-BFC8-FCB5FF58FF90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07F184F3-D7FA-4A17-BA99-653DB7515CE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07F184F3-D7FA-4A17-BA99-653DB7515CE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07F184F3-D7FA-4A17-BA99-653DB7515CE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07F184F3-D7FA-4A17-BA99-653DB7515CE7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

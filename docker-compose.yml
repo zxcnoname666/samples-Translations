@@ -1,0 +1,18 @@
+﻿services:
+  cache:
+    container_name: redis
+    image: redis/redis-stack-server:latest
+    environment:
+      REDIS_HOST: cache
+      REDIS_PORT: 6379
+    volumes:
+      - cache:/data/translations/redis
+    ports:
+      - '6379:6379'
+
+networks:
+  cache:
+    driver: local
+
+volumes:
+  cache:
