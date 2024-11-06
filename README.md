@@ -19,9 +19,13 @@
 
 ## Запуск
 1. Сперва запустите контейнер с redis, для этого в проекте лежит файл docker-compose.
+
 ![image](https://github.com/user-attachments/assets/aeb6c906-7195-416e-b11b-47acaa6a9dce)
+
 2. Затем запустите сервер. Если вы используете Rider, то можете запустить сразу в настроенной конфигурации.
+
 ![{9A4DC63D-44A8-4905-AEC0-DBC78D71101A}](https://github.com/user-attachments/assets/2634424d-80ff-4ecb-a73b-abe193fea642)
+
 3. Запускаете клиент. Можно также по готовой конфигурации из Rider. Если вы запускали Server как-то иначе, то проверьте порты, чтобы клиент подключался по нужному порту.
 
 ![{08C61AE6-6F3F-4B5A-A3AF-E4671A59E07E}](https://github.com/user-attachments/assets/d57477d3-3107-4b8a-b96c-ff2832368c8f)
