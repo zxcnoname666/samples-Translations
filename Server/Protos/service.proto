@@ -2,9 +2,9 @@ syntax = "proto3";
 
 option csharp_namespace = "Server.Protos";
 
-package greet;
+package service;
 
-service Translator {
+service TranslatorProto {
   // RPC для перевода
   rpc Translate (TranslateRequest) returns (TranslateReply);
   

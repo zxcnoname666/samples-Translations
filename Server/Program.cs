@@ -1,10 +1,9 @@
+using Initializer;
 using Server.Services;
-using Server.Core;
 
 
-// Создаем основное "ядро" приложения
-Defines.Create();
-
+// Объявляем клиент перевода и кэширования.
+Run.DefineCore();
 
 // Создаем Http/2 сервер
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);

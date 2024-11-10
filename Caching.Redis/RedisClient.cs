@@ -1,13 +1,13 @@
 using StackExchange.Redis;
 
-namespace Server.Core.Caching.Redis;
+namespace Caching.Redis;
 
-public class Client : ICaching
+public class RedisClient : ICaching
 {
     private readonly ConnectionMultiplexer _connection;
     private readonly IDatabase _database;
 
-    public Client()
+    public RedisClient()
     {
         _connection = ConnectionMultiplexer.Connect(Config.RedisHost);
         _database = _connection.GetDatabase();

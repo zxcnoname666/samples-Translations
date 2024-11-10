@@ -1,4 +1,4 @@
-namespace Server.Core.Translator;
+namespace Translator;
 
 /// <summary>
 /// Единая структура ответа для всех движков перевода.

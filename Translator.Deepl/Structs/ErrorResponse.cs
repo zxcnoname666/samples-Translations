@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace Server.Core.Translator.Deepl.Structs;
+namespace Translator.Deepl.Structs;
 
 /// <summary>
 /// Структура неудачного ответа от Deepl API.

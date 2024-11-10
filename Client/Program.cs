@@ -1,22 +1,17 @@
-﻿using Client;
-using Grpc.Net.Client;
+﻿using Core;
 
-// Подключаемся к gRPC
-GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:5232");
-Translator.TranslatorClient client = new(channel);
 
+Console.WriteLine("Инициализация...");
+Initializer.Run.DefineCore();
 
 #region Information
 Console.WriteLine("Получаю информацию о движке перевода...");
 try
 {
-    // Запрашиваем информацию по "движку" на сервере и объеме кэша.
-    InfoReply? response = client.Information(new EmptyRequest());
-
     // Выводим ответ
-    Console.WriteLine("Переводчик: " + response?.Translator);
-    Console.WriteLine("Кэш: " + response?.Caching);
-    Console.WriteLine("Размер кэша: " + response?.CacheSize);
+    Console.WriteLine("Переводчик: " + Defines.Translator?.GetTranslationCore());
+    Console.WriteLine("Кэш: " + Defines.Caching?.GetCachingCore());
+    Console.WriteLine("Размер кэша: " + Defines.Caching?.GetCacheSize());
 }
 catch (Exception ex)
 {
@@ -55,17 +50,12 @@ Console.WriteLine("Перевожу...");
 try
 {
     // Отправляем запрос на перевод
-    TranslateReply? response = client.Translate(new TranslateRequest
-    {
-        Text = { line },
-        Target = targetLang,
-        Source = sourceLang
-    });
+    var response = Defines.Translator?.Translate([line], targetLang, sourceLang);
 
     // Выводим данные из ответа
-    Console.WriteLine("Is Errored: " + response.IsErrored);
-    Console.WriteLine("Error Message: " + response.ErrorMessage);
-    Console.WriteLine("Translations: " + string.Join(", ", response.Translations));
+    Console.WriteLine("Is Errored: " + response?.IsErrored);
+    Console.WriteLine("Error Message: " + response?.ErrorMessage);
+    Console.WriteLine("Translations: " + string.Join(", ", response?.Translations ?? []));
 }
 catch (Exception ex)
 {

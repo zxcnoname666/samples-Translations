@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-option csharp_namespace = "Client";
+option csharp_namespace = "Tests.gRPC";
 
-package greet;
+package service;
 
-service Translator {
+service TranslatorProto {
   // RPC для перевода
   rpc Translate (TranslateRequest) returns (TranslateReply);
 

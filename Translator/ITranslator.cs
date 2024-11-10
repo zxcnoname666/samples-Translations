@@ -1,4 +1,4 @@
-namespace Server.Core.Translator;
+namespace Translator;
 
 /// <summary>
 /// Интерфейс для класса переводчика.

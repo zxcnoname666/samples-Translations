@@ -1,4 +1,4 @@
-namespace Server.Core.Caching;
+namespace Caching;
 
 /// <summary>
 /// Интерфейс для класса кэширования.

@@ -1,18 +1,18 @@
+using Core;
 using Grpc.Core;
-using Server.Core;
-using Server.Core.Translator;
 using Server.Protos;
+using Translator;
 
 namespace Server.Services;
 
-public class TranslatorService : Translator.TranslatorBase
+public class TranslatorService : TranslatorProto.TranslatorProtoBase
 {
     /// <summary>
     /// Метод gRPC, который вызывается при запросе перевода.
     /// </summary>
     public override Task<TranslateReply> Translate(TranslateRequest request, ServerCallContext context)
     {
-        TranslationResponse response = Defines.Instance?.Translate([..request.Text], request.Target, request.Source) ??
+        TranslationResponse response = Defines.Translator?.Translate([..request.Text], request.Target, request.Source) ??
                                        new TranslationResponse
                                        {
                                            IsErrored = true,
@@ -36,9 +36,9 @@ public class TranslatorService : Translator.TranslatorBase
     {
         return Task.FromResult(new InfoReply
         {
-            Translator = Defines.Instance?.GetTranslationCore() ?? "Unknown",
-            Caching = Defines.Instance?.GetCachingCore() ?? "Unknown",
-            CacheSize = Defines.Instance?.GetCacheSize() ?? 0
+            Translator = Defines.Translator?.GetTranslationCore() ?? "Unknown",
+            Caching = Defines.Caching?.GetCachingCore() ?? "Unknown",
+            CacheSize = Defines.Caching?.GetCacheSize() ?? 0
         });
     }
 }

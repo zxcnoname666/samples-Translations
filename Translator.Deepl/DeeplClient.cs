@@ -1,20 +1,21 @@
-using System.Net;
+﻿using System.Net;
 using System.Net.Http.Headers;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
-using Server.Core.Translator.Deepl.Structs;
+using Core;
+using Translator.Deepl.Structs;
 
-namespace Server.Core.Translator.Deepl;
+namespace Translator.Deepl;
 
-public class Client : ITranslator
+public class DeeplClient : ITranslator
 {
     private readonly HttpClient _httpClient;
     
-    public Client(string token)
+    public DeeplClient()
     {
         _httpClient = new HttpClient();
-        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("DeepL-Auth-Key", token);
+        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("DeepL-Auth-Key", Config.DeeplKey);
     }
 
     /// <summary>
@@ -38,7 +39,7 @@ public class Client : ITranslator
         // ищем строки в кэше, если есть - добавляем в один массив, если нет - в другой
         foreach (string search in text)
         {
-            string? inCache = Defines.Instance?.Get($"Deepl:{source}:{target}:{Md5(search)}");
+            string? inCache = Defines.Caching?.Get($"Deepl:{source}:{target}:{Md5(search)}");
 
             if (string.IsNullOrEmpty(inCache))
                 viaApi.Add(search);
@@ -71,7 +72,7 @@ public class Client : ITranslator
         {
             string translated = task.Result.Translations[i];
             string search = viaApi[i];
-            Defines.Instance?.Set($"Deepl:{source}:{target}:{Md5(search)}", translated);
+            Defines.Caching?.Set($"Deepl:{source}:{target}:{Md5(search)}", translated);
         }
 
         translations.AddRange(task.Result.Translations);
