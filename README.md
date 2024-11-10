@@ -36,12 +36,16 @@
 
 3. Запускаете тесты, и выбираете режим теста "3". Можно также по готовой конфигурации из Rider. Если вы запускали Server как-то иначе, то проверьте порты, чтобы клиент подключался по нужному порту.
 
+![{B14799ED-8A4F-449C-8FAF-D5068BA10460}](https://github.com/user-attachments/assets/043467ce-3827-43ef-a764-ba6d7e3cdff9)
+
+
 ## Запуск клиента
 1. Сперва запустите контейнер с redis, для этого в проекте лежит файл docker-compose.
 
 ![image](https://github.com/user-attachments/assets/aeb6c906-7195-416e-b11b-47acaa6a9dce)
 
 2. Затем запускаете клиент.
+
 ![{08C61AE6-6F3F-4B5A-A3AF-E4671A59E07E}](https://github.com/user-attachments/assets/d57477d3-3107-4b8a-b96c-ff2832368c8f)
 
 
